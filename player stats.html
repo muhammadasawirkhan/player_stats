@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Player stats</title>
+	<meta name="viewport"content="width=device-width,initial-scale=1.0">
+	<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<style>
+	.row{
+		display: flex;
+	}
+	.column1{
+		width: 35vw;
+		height: 96vh;
+		border:1px solid #000;
+		margin-left: 13vw;
+	}
+	.cart{
+		width: 35vw;
+		height: 96vh;
+		border:1px solid #000;
+	}
+	img{
+		height: 130px;
+		width: 130px;
+		margin: 5px;
+		margin-top: 3vh;
+		margin-left: 10vw;
+		border-radius: 200px;
+		box-shadow: 1px 2px 3px 5px rgba(0,0,0,0.7);
+	}
+	.text{
+		font-size: 15px;
+		margin-left: 13vw;
+	}
+
+
+</style>
+</head>
+<body>
+	<div class="row">
+		<div class="column1">
+			<div class="Player1">
+				<img class="img1"src="AaronFinch.png"/>
+				<div class="text">
+					Matches:100
+					<br/> 
+					Catches:50
+				</div>
+			</div>
+			<div class="Player2">
+				<img id="img2"src="babarAzamm.png"/>
+				<div class="text"> 
+					Matches:200
+					<br/> 
+					Catches:50
+				</div>		
+			</div>
+			<div class="Player3">
+				<img id="img3"src="ashtonAgar.png"/>
+				<div class="text"> 
+					Matches:200
+					<br/> 
+					Catches:50
+				</div>		
+			</div>
+			
+		</div>
+		<div class="cart">
+
+
+		</div>
+
+
+
+	</div>
+
+	<script>
+		$(function(){
+			$(".Player1.text").hide();
+			$(".Player1").draggable({helper:"clone"});
+			$(".Player2.text").hide();
+			$(".Player2").draggable({helper:"clone"});
+			$(".Player3.text").hide();
+			$(".Player3").draggable({helper:"clone"});
+
+			$(".cart").droppable({
+				drop:function(event,ui)
+				{
+					var droppedItem= $(ui.draggable).clone();
+					$(this).append(droppedItem);
+				}
+			});
+		});
+	</script>
+
+</body>
+</html>
